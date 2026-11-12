@@ -126,7 +126,7 @@ jobs:
           # tests the code being COMPILED out, this tests it compiled IN and
           # declining at run time.
           - name: macos / clang + metal
-            os: macos-14
+            os: macos-15
     steps:
       - uses: actions/checkout@v4
       - run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
@@ -146,7 +146,7 @@ jobs:
   # on a developer Mac ever compiles with Metal off.
   no-metal:
     name: macos / metal disabled
-    runs-on: macos-14
+    runs-on: macos-15
     steps:
       - uses: actions/checkout@v4
       - run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DRAGCPP_WITH_METAL=OFF
@@ -223,7 +223,7 @@ jobs:
   # confirming the same on the other toolchains.
   warnings:
     name: macos / -Werror
-    runs-on: macos-14
+    runs-on: macos-15
     steps:
       - uses: actions/checkout@v4
       - run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DRAGCPP_WERROR=ON
